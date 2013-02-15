@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @post = Post.new
+    @comment = Comment.new
     @posts = Post.find(:all, :limit => 50, :order => 'created_at DESC')
   end
 
@@ -8,6 +9,16 @@ class PostsController < ApplicationController
     @post = Post.new
     respond_to do |format|
       format.html
+    end
+  end
+
+  def reply
+    @post = Post.find(params[:postid])
+    @comment = @post.comments.new(params[:comment])
+    respond_to do |f|
+      if @comment.save
+        f.js
+      end
     end
   end
 

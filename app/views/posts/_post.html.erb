@@ -1,12 +1,10 @@
-  <li>
-  <%= post.poster == "" || !post.poster ? 'Noname':post.poster %>
+  <blockquote id="<%= dom_id post %>">
   <p><%= post.body %></p>
-  <div>
-    <% post.comments.each do |c| %>
-    <ul>
-      <li><%= c.body %></li>
-    </ul>
-    <% end %>
-  </div>
-  </li>
+  <small class="pull-right"><%= post.poster == "" || !post.poster ? 'Noname':post.poster %></small>
+  <br />
+  <a href="#" class="pull-right" onclick="$('#postid').val(<%= post.id %>);$('#newreply').modal('show')">Reply</a>
+  <ul>
+  <%= render post.comments %>
+  </ul>
+  </blockquote>
 

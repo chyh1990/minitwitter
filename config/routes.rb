@@ -3,6 +3,8 @@ Minitwitter::Application.routes.draw do
 #  get "post/new"
   resources :posts
 
+  post "posts/reply" => "posts#reply"
+
   get "home/index"
   get "about" => "about#show"
 

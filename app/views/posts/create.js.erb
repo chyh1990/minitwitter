@@ -1,3 +1,3 @@
 $("#newpost-form > form")[0].reset();
 $('#newpost').modal('hide')
-$('<%= j render @post %>').prependTo('#posts > ul').hide().fadeIn()
+$('<%= j render @post %>').prependTo('#posts').hide().fadeIn()

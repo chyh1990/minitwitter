@@ -1,0 +1,6 @@
+<%= form_for(@comment, :remote => true , :url => "/posts/reply") do |f| %>
+<%= f.hidden_field :commenter, :value => "Noname" %>
+<%= hidden_field_tag :postid, 0 %>
+<%= f.text_field :body %>
+<%= f.submit %>
+<% end %>

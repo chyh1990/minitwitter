@@ -1,0 +1,3 @@
+$("#newreply-form > form")[0].reset();
+$('#newreply').modal('hide')
+$('#<%= dom_id @post %> > ul').append('<%= j render @comment %>').hide().fadeIn()
