@@ -2,7 +2,11 @@
   <p><%= post.body %></p>
   <small class="pull-right"><%= post.poster == "" || !post.poster ? 'Noname':post.poster %></small>
   <br />
-  <a href="#" class="pull-right" onclick="$('#postid').val(<%= post.id %>);$('#newreply').modal('show')">Reply</a>
+  <div class="pull-right post-operation">
+  <a href="#" onclick="$('#postid').val(<%= post.id %>);$('#newreply').modal('show')">Reply</a>
+  <a href="#" onclick="">Delete</a>
+  </div>
+  <br />
   <ul>
   <%= render post.comments %>
   </ul>
